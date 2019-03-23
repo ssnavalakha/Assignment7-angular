@@ -6,16 +6,6 @@ export class CourseServiceClient {
   constructor() {
     this.COURSE_API_URL = 'http://localhost:8080/';
   }
-  addCourse = course => {
-    return fetch(this.COURSE_API_URL + 'api/courses', {
-      body: JSON.stringify(course),
-      headers: {
-        'Content-Type': 'application/json' },
-      credentials: 'include',
-      method: 'POST'
-    }).then((res) => res.json());
-
-  }
   findCourseById = courseId => {
     return fetch(this.COURSE_API_URL + 'api/courses/' + courseId)
       .then(response =>
@@ -23,15 +13,10 @@ export class CourseServiceClient {
 
   }
   findAllCourses = () => {
-    return fetch(this.COURSE_API_URL + 'api/courses', {
+    return fetch(this.COURSE_API_URL + 'api/allcourses', {
       credentials: 'include'
     }).then(response =>
       response.json());
 
-  }
-  deleteCourse = deleteCourse => {
-    return fetch(this.COURSE_API_URL + 'api/courses/' + deleteCourse.id, {
-      method: 'DELETE'
-    });
   }
 }
