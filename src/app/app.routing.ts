@@ -11,9 +11,9 @@ const appRoutes: Routes = [
   { path: 'course', component: CourseGridComponentComponent },
   { path: 'course/table', component: CourseTableComponentComponent},
   { path: 'course/:courseId', component: CourseEditorComponentComponent },
-  { path: 'course/:courseId/module', component: ModuleListComponentComponent},
-  { path: 'course/:courseId/module/:moduleId/lesson', component: LessonTabsComponentComponent},
-  { path: 'course/:courseId/module/:moduleId/lesson/:lessonId/topic', component: TopicPillsComponentComponent},
-  { path: 'course/:courseId/module/:moduleId/lesson/:lessonId/topic/:topicId/widget', component: WidgetListComponentComponent}
+  { path: 'course/:courseId/module', component: CourseEditorComponentComponent},
+  { path: 'course/:courseId/module/:moduleId/lesson', component: CourseEditorComponentComponent},
+  { path: 'course/:courseId/module/:moduleId/lesson/:lessonId/topic', component: CourseEditorComponentComponent},
+  { path: 'course/:courseId/module/:moduleId/lesson/:lessonId/topic/:topicId/widget', component: CourseEditorComponentComponent}
 ];
 export const routing = RouterModule.forRoot(appRoutes);

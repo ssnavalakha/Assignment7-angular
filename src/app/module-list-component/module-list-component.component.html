@@ -1,3 +1,18 @@
-<p>
-  module-list-component works!
-</p>
+<div class="row">
+<div class="col-3 col-sm-2
+             bg-dark Max-width 100% d-inline-block Max-height 100%">
+<div>
+  <ul class=" nav flex-column nav-pills list-group">
+    <li class="list-group-item" *ngFor="let m of modules">
+      <button class="btn bg-dark nav-link text-white active mt-3"
+              type="button" >
+        <a routerLink="/course/{{courseId}}/module/{{m.id}}/lesson">{{m.title}}</a>
+      </button>
+    </li>
+  </ul>
+</div>
+</div>
+<div class="col-9 col-sm-10">
+<app-lesson-tabs-component></app-lesson-tabs-component>
+</div>
+</div>

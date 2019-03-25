@@ -1,3 +1,34 @@
-<p>
-  course-editor-component works!
-</p>
+<div>
+  <div class="row">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark w-100">
+      <a class="navbar-brand text-white" href="#">{{course.title}}</a>
+      <button (click)="toggleNavBar()"
+              [class]="toggle ? 'navbar-toggler collapsed' : 'navbar-toggler'"
+              type="button"
+              data-toggle="collapse" data-target="#navbarNavDropdown">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div [class]="toggle ? 'collapse navbar-collapse' : 'collapse navbar-collapse show'"
+           id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Build</a></li>
+          <li class="nav-item active">
+            <a class="nav-link text-white" href="#">Pages</a></li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Theme</a></li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Store</a></li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Apps</a></li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Settings</a></li>
+          <div class="float-right">
+            <i class="fa fa-plus "></i>
+          </div>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <app-module-list-component></app-module-list-component>
+</div>
