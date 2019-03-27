@@ -9,8 +9,8 @@ import {ModuleServiceClient} from '../../Services/ModuleServiceClient';
 })
 export class ModuleListComponentComponent implements OnInit {
   public modules: any[];
-  public selectedModule: any;
   public courseId: any;
+  public selectedRow: any;
 
   constructor(private activatedRoute: ActivatedRoute,
               private moduleService: ModuleServiceClient) {
@@ -20,6 +20,7 @@ export class ModuleListComponentComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.courseId = params.courseId;
+      this.selectedRow = Number(params.moduleId);
       this.getModulesForCourseId(this.courseId);
     });
     }
@@ -29,4 +30,7 @@ export class ModuleListComponentComponent implements OnInit {
           .then(mdl => this.modules = mdl);
       }
     }
+  setClickedRow(m) {
+    this.selectedRow = m.id;
+  }
 }

@@ -10,7 +10,7 @@ import {LessonServiceClient} from '../../Services/LessonServiceClient';
 export class LessonTabsComponentComponent implements OnInit {
   public lessons: any[];
   public moduleId: any;
-  public selectedLesson: any;
+  public selectedRow: any;
   public courseId: any;
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -21,6 +21,7 @@ export class LessonTabsComponentComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.moduleId = params.moduleId;
       this.courseId = params.courseId;
+      this.selectedRow = Number(params.lessonId);
       this.getLessonsForModuleId(this.moduleId);
     });
     }
@@ -30,5 +31,8 @@ export class LessonTabsComponentComponent implements OnInit {
           .then(ls => this.lessons = ls);
       }
     }
+  setClickedRow(l) {
+    this.selectedRow = l.id;
+  }
 
 }

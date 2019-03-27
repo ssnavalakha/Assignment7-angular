@@ -1,8 +1,9 @@
 <div class="row">
   <ul class="nav nav-tabs my-2">
-    <li *ngFor="let l of lessons" class="nav-item  mx-2">
+    <li *ngFor="let l of lessons; let i = index" (click)="setClickedRow(l)"
+         class="nav-item  mx-2">
       <a routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{l.id}}/topic"
-         class="nav-link text-white bg-dark" role="button">
+         class="nav-link text-white bg-dark" [class.active]="l.id === selectedRow" role="button">
         {{l.title}}
       </a>
     </li>

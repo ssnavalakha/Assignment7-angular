@@ -10,7 +10,7 @@ import {TopicServiceClient} from '../../Services/TopicServiceClient';
 export class TopicPillsComponentComponent implements OnInit {
   public topics: any[];
   public lessonId: any;
-  public selectedLesson: any;
+  public selectedRow: any;
   public moduleId: any;
   public courseId: any;
   constructor(private activatedRoute: ActivatedRoute,
@@ -21,6 +21,7 @@ export class TopicPillsComponentComponent implements OnInit {
       this.lessonId = params.lessonId;
       this.moduleId = params.moduleId;
       this.courseId = params.courseId;
+      this.selectedRow = Number(params.topicId);
       this.getTopicsForLesson(this.lessonId);
     });
   }
@@ -29,5 +30,9 @@ export class TopicPillsComponentComponent implements OnInit {
       this.topicService.findTopicsForLesson(this.lessonId)
         .then(tp => this.topics = tp);
     }
+  }
+
+  setClickedRow(t) {
+    this.selectedRow = t.id;
   }
 }

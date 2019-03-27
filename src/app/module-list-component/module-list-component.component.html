@@ -3,8 +3,9 @@
              bg-dark Max-width 100% d-inline-block Max-height 100%">
 <div>
   <ul class=" nav flex-column nav-pills list-group bg-dark">
-    <li class="list-group-item bg-dark" *ngFor="let m of modules">
-      <button class="btn bg-dark nav-link text-white active "
+    <li class="list-group-item bg-dark" *ngFor="let m of modules; let i = index" (click)="setClickedRow(m)"
+        [class.active]="m.id === selectedRow">
+      <button class="btn bg-dark nav-link text-white "
               type="button" routerLink="/course/{{courseId}}/module/{{m.id}}/lesson">
         {{m.title}}
       </button>

@@ -1,7 +1,7 @@
 <ul class="nav nav-pills">
-<li class="nav-item mx-1" *ngFor="let t of topics">
-  <a class="nav-link bg-dark text-white"
-     routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lessonId}}/topic/{{t.id}}/widget">
+<li   class="nav-item mx-1" *ngFor="let t of topics; let i = index" (click)="setClickedRow(t)">
+  <a class="nav-link " role="button"
+     [class.active]="t.id === selectedRow" routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lessonId}}/topic/{{t.id}}/widget">
     {{t.title}}
   </a>
 </li>
