@@ -26,7 +26,7 @@
         </div>
         <div *ngSwitchCase="'LINK'">
           <div class="mx-1 my-1">
-            <a href={{w.widget.href}}>{{w.widget.title}}</a>
+            <a href="#" (click)="navigateToExternalURL(w.widget.href)">{{w.widget.title}}</a>
           </div>
         </div>
         <div *ngSwitchCase="'IMAGE'">

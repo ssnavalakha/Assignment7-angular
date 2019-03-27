@@ -20,11 +20,13 @@ export class ModuleListComponentComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.courseId = params.courseId;
+      this.getModulesForCourseId(this.courseId);
     });
-    if (this.courseId != null) {
-      this.moduleService.findAllModulesForCourse(this.courseId)
-        .then(mdl => this.modules = mdl);
+    }
+    getModulesForCourseId(courseId) {
+      if (this.courseId != null) {
+        this.moduleService.findAllModulesForCourse(this.courseId)
+          .then(mdl => this.modules = mdl);
       }
     }
-
 }

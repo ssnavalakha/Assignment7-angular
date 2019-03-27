@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 export class WidgetServiceClient {
   private WIDGET_API_URL: string;
   constructor() {
-    this.WIDGET_API_URL = 'http://localhost:8080/';
+    this.WIDGET_API_URL = 'https://dry-coast-78857.herokuapp.com/';
   }
   comparator = (a , b) => {
     return a.widget.position - b.widget.position;

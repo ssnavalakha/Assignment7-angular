@@ -21,10 +21,13 @@ export class LessonTabsComponentComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.moduleId = params.moduleId;
       this.courseId = params.courseId;
+      this.getLessonsForModuleId(this.moduleId);
     });
-    if (this.moduleId != null) {
-      this.lessonService.findLessonsByModule(this.moduleId)
-        .then(ls => this.lessons = ls);
+    }
+    getLessonsForModuleId(moduleId) {
+      if (this.moduleId != null) {
+        this.lessonService.findLessonsByModule(this.moduleId)
+          .then(ls => this.lessons = ls);
       }
     }
 

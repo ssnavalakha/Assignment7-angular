@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 export class LessonServiceClient {
   private readonly LESSON_API_URL: string;
   constructor() {
-    this.LESSON_API_URL = 'http://localhost:8080/';
+    this.LESSON_API_URL = 'https://dry-coast-78857.herokuapp.com/';
   }
   findLessonsByModule(mid) {
     return fetch(this.LESSON_API_URL + 'api/module/' + mid + '/lesson')

@@ -21,11 +21,13 @@ export class TopicPillsComponentComponent implements OnInit {
       this.lessonId = params.lessonId;
       this.moduleId = params.moduleId;
       this.courseId = params.courseId;
+      this.getTopicsForLesson(this.lessonId);
     });
+  }
+  getTopicsForLesson(lessonId) {
     if (this.lessonId != null) {
       this.topicService.findTopicsForLesson(this.lessonId)
         .then(tp => this.topics = tp);
     }
   }
-
 }

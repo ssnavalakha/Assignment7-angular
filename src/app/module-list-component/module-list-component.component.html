@@ -2,11 +2,11 @@
 <div class="col-3 col-sm-2
              bg-dark Max-width 100% d-inline-block Max-height 100%">
 <div>
-  <ul class=" nav flex-column nav-pills list-group">
-    <li class="list-group-item" *ngFor="let m of modules">
-      <button class="btn bg-dark nav-link text-white active mt-3"
-              type="button" >
-        <a routerLink="/course/{{courseId}}/module/{{m.id}}/lesson">{{m.title}}</a>
+  <ul class=" nav flex-column nav-pills list-group bg-dark">
+    <li class="list-group-item bg-dark" *ngFor="let m of modules">
+      <button class="btn bg-dark nav-link text-white active "
+              type="button" routerLink="/course/{{courseId}}/module/{{m.id}}/lesson">
+        {{m.title}}
       </button>
     </li>
   </ul>

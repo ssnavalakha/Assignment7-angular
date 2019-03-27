@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Component, Inject, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {WidgetServiceClient} from '../../Services/WidgetServiceClient';
 
 @Component({
@@ -14,7 +14,8 @@ export class WidgetListComponentComponent implements OnInit {
   public moduleId: any;
   public widgets: any[];
   constructor(private activatedRoute: ActivatedRoute,
-              private widgetService: WidgetServiceClient) { }
+              private widgetService: WidgetServiceClient,
+              private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
@@ -22,7 +23,10 @@ export class WidgetListComponentComponent implements OnInit {
       this.moduleId = params.moduleId;
       this.courseId = params.courseId;
       this.topicId = params.topicId;
+      this.getWidgetsForTopic(this.topicId);
     });
+  }
+  getWidgetsForTopic(topicId) {
     if (this.topicId != null) {
       this.widgetService.findWidgetsForTopic(this.topicId)
         .then(wids => this.widgets = wids);
@@ -31,5 +35,8 @@ export class WidgetListComponentComponent implements OnInit {
   splitArray(ar) {
     const array1 = ar.split(',');
     return array1;
+  }
+  navigateToExternalURL(url) {
+    window.location.href = url;
   }
 }

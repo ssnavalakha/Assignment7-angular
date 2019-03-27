@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 export class ModuleServiceClient {
   private readonly MODULE_API_URL: string;
   constructor() {
-    this.MODULE_API_URL = 'http://localhost:8080/';
+    this.MODULE_API_URL = 'https://dry-coast-78857.herokuapp.com/';
   }
   findAllModulesForCourse(cid) {
     return fetch(this.MODULE_API_URL + 'api/course/' + cid + '/modules')
