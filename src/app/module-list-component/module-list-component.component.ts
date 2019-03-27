@@ -10,7 +10,7 @@ import {ModuleServiceClient} from '../../Services/ModuleServiceClient';
 export class ModuleListComponentComponent implements OnInit {
   public modules: any[];
   public selectedModule: any;
-  private courseId: any;
+  public courseId: any;
 
   constructor(private activatedRoute: ActivatedRoute,
               private moduleService: ModuleServiceClient) {

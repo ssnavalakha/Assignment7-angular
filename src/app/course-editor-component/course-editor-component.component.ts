@@ -13,7 +13,7 @@ import {TopicServiceClient} from '../../Services/TopicServiceClient';
 export class CourseEditorComponentComponent implements OnInit {
   public courseId: any;
   public course: any;
-  private toggle: boolean;
+  public toggle: boolean;
 
   constructor(private activatedRoute: ActivatedRoute,
               private service: CourseServiceClient) {
