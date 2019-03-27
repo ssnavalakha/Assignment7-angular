@@ -1,0 +1,44 @@
+<div>
+  <div class="row my-5" *ngFor="let w of widgets">
+    <div class="col-1 hidden-xs"></div>
+    <div class="panel panel-primary w-75 col-10" name="wid">
+      <div class="panel-header w-100 row">
+        <h4> {{w.widget.type}}</h4>
+      </div>
+      <div class="panel-body w-100" [ngSwitch]="w.widget.type">
+        <div *ngSwitchCase="'HEADING'">
+          <div class="mx-1 my-1" [ngSwitch]="w.widget.size">
+
+            <h1 *ngSwitchCase="1">{{w.widget.text}}</h1>
+            <h2 *ngSwitchCase="2">{{w.widget.text}}</h2>
+            <h3 *ngSwitchCase="3">{{w.widget.text}}</h3>
+          </div>
+        </div>
+        <div *ngSwitchCase="'LIST'">
+          <div [ngSwitch]="w.widget.ddType">
+            <ol *ngSwitchCase="2">
+              <li *ngFor="let i of splitArray(w.widget.items)">{{i}}</li>
+            </ol>
+            <ul *ngSwitchCase="1">
+              <li *ngFor="let i of splitArray(w.widget.items)">{{i}}</li>
+            </ul>
+          </div>
+        </div>
+        <div *ngSwitchCase="'LINK'">
+          <div class="mx-1 my-1">
+            <a href="#" (click)="navigateToExternalURL(w.widget.href)">{{w.widget.title}}</a>
+          </div>
+        </div>
+        <div *ngSwitchCase="'IMAGE'">
+          <div class="mx-1 my-1"><img src={{w.widget.src}}}/></div>
+        </div>
+        <div *ngSwitchCase="'PARAGRAPH'">
+          <div class="mx-1 my-1">
+            <p class="mx-1 my-1">{{w.widget.text}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1 hidden-xs"></div>
+  </div>
+</div>

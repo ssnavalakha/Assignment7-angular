@@ -4,17 +4,7 @@ import {Injectable} from '@angular/core';
 export class CourseServiceClient {
   private readonly COURSE_API_URL: string;
   constructor() {
-    this.COURSE_API_URL = 'http://localhost:8080/';
-  }
-  addCourse = course => {
-    return fetch(this.COURSE_API_URL + 'api/courses', {
-      body: JSON.stringify(course),
-      headers: {
-        'Content-Type': 'application/json' },
-      credentials: 'include',
-      method: 'POST'
-    }).then((res) => res.json());
-
+    this.COURSE_API_URL = 'https://dry-coast-78857.herokuapp.com/';
   }
   findCourseById = courseId => {
     return fetch(this.COURSE_API_URL + 'api/courses/' + courseId)
@@ -23,15 +13,10 @@ export class CourseServiceClient {
 
   }
   findAllCourses = () => {
-    return fetch(this.COURSE_API_URL + 'api/courses', {
+    return fetch(this.COURSE_API_URL + 'api/allcourses', {
       credentials: 'include'
     }).then(response =>
       response.json());
 
-  }
-  deleteCourse = deleteCourse => {
-    return fetch(this.COURSE_API_URL + 'api/courses/' + deleteCourse.id, {
-      method: 'DELETE'
-    });
   }
 }

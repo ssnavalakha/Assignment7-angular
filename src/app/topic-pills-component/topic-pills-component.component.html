@@ -1,0 +1,9 @@
+<ul class="nav nav-pills">
+<li class="nav-item mx-1" *ngFor="let t of topics">
+  <a class="nav-link bg-dark text-white"
+     routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lessonId}}/topic/{{t.id}}/widget">
+    {{t.title}}
+  </a>
+</li>
+</ul>
+<app-widget-list-component></app-widget-list-component>

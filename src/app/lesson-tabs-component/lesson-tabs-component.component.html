@@ -1,0 +1,11 @@
+<div class="row">
+  <ul class="nav nav-tabs my-2">
+    <li *ngFor="let l of lessons" class="nav-item  mx-2">
+      <a routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{l.id}}/topic"
+         class="nav-link text-white bg-dark" role="button">
+        {{l.title}}
+      </a>
+    </li>
+  </ul>
+</div>
+<app-topic-pills-component></app-topic-pills-component>

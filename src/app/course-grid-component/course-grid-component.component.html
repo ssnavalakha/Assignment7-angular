@@ -1,0 +1,39 @@
+<div>
+  <div class="row">
+    <div class="col-md-1 col-lg-1 col-sm-1 hidden-xs"></div>
+    <table class="table col-md-10 col-lg-10 col-sm-10 col-12 table-hover">
+      <thead class="thead-light">
+      <th><h6>Recent Documents</h6></th>
+      <th>
+        <div class="row">
+          <h6>Owned by me</h6>
+        </div>
+      </th>
+      <th>
+        <a (click)="navigateToList()"><i class="text-dark fa fa-list-ul"></i></a>
+      </th>
+      </thead>
+    </table>
+    <div class="col-md-1 col-lg-1 col-sm-1 hidden-xs"></div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="card-deck col-10">
+      <div class="mx-2 my-3" *ngFor="let course of courses">
+        <div class="card"
+             style="width:18rem">
+          <img class="card-img-top"
+               src="https://picsum.photos/150/175" alt="123"/>
+          <div class="card-body">
+            <h5 class="card-title">
+              <a (click)="navigateToEditor(course.id)">
+                {{course.title}}</a>
+              <!--<Link class="text-dark"to={`/course/${course.id}`}>{course.title}</Link>-->
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
